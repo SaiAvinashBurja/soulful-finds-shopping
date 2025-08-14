@@ -1,18 +1,22 @@
+// Load cart from localStorage or initialize empty array
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// Save cart to localStorage and update cart count
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
 }
 
+// Update the cart count in the navbar
 function updateCartCount() {
-    const count = cart.reduce((total, item) => total + item.quantity, 0);
     const cartCountEl = document.getElementById('cart-count');
-    if (cartCountEl) {
-        cartCountEl.textContent = count > 0 ? `(${count})` : '';
-    }
+    if (!cartCountEl) return;
+
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCountEl.textContent = totalCount > 0 ? `(${totalCount})` : '';
 }
 
+// Add a product to the cart
 function addToCart(name, price, image, button) {
     let product = cart.find(p => p.name === name);
     if (product) {
@@ -22,16 +26,16 @@ function addToCart(name, price, image, button) {
         cart.push(product);
     }
     saveCart();
-    button.textContent = "Added to Cart";
+    if (button) button.textContent = "Added to Cart";
 }
 
+// Display the cart page
 function displayCart() {
-    const cartItems = document.getElementById('cart-items');
+    const cartItemsEl = document.getElementById('cart-items');
     const totalEl = document.getElementById('total');
+    if (!cartItemsEl || !totalEl) return;
 
-    if (!cartItems) return;
-
-    cartItems.innerHTML = '';
+    cartItemsEl.innerHTML = '';
     let total = 0;
 
     cart.forEach((item, index) => {
@@ -40,22 +44,19 @@ function displayCart() {
         const div = document.createElement('div');
         div.className = "cart-item";
         div.innerHTML = `
-    <img src="${item.image}" alt="${item.name}">
-    <span>${item.name} - ₹${item.price}</span>
-    <div class="qty-control">
-        <button class="minus-btn">-</button>
-        <span>${item.quantity}</span>
-        <button class="plus-btn">+</button>
-    </div>
-    <button class="remove-btn">Remove</button>
-`;
-
+            <img src="${item.image}" alt="${item.name}">
+            <span>${item.name} - ₹${item.price}</span>
+            <div class="qty-control">
+                <button class="minus-btn">-</button>
+                <span>${item.quantity}</span>
+                <button class="plus-btn">+</button>
+            </div>
+            <button class="remove-btn">Remove</button>
+        `;
 
         div.querySelector('.minus-btn').addEventListener('click', () => {
             item.quantity--;
-            if (item.quantity <= 0) {
-                cart.splice(index, 1);
-            }
+            if (item.quantity <= 0) cart.splice(index, 1);
             saveCart();
             displayCart();
         });
@@ -72,26 +73,30 @@ function displayCart() {
             displayCart();
         });
 
-        cartItems.appendChild(div);
+        cartItemsEl.appendChild(div);
     });
 
     totalEl.textContent = `Total: ₹${total}`;
 }
 
+// Clear the cart
 function clearCart() {
     cart = [];
     saveCart();
     displayCart();
 }
 
+// Run on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Product pages
+    // Always update cart count in navbar
+    updateCartCount();
+
+    // Setup product buttons (if present)
     document.querySelectorAll('.add-to-cart').forEach(button => {
         const name = button.dataset.name;
         const inCart = cart.find(p => p.name === name);
-        if (inCart) {
-            button.textContent = "Added to Cart";
-        }
+        if (inCart) button.textContent = "Added to Cart";
+
         button.addEventListener('click', () => {
             const price = parseFloat(button.dataset.price);
             const image = button.dataset.image;
@@ -99,52 +104,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Cart page
+    // Display cart page if applicable
     displayCart();
 
-    // Always update cart count
-    updateCartCount();
+    // Cart link navigation
     const cartLink = document.getElementById('cart-link');
     if (cartLink) {
         cartLink.addEventListener('click', () => {
             window.location.href = 'cart.html';
         });
     }
-    // Search functionality for existing navbar
+
+    // Search functionality (if present)
     const searchInput = document.getElementById('searchInput');
     const searchIcon = document.querySelector('.searchicon');
 
     if (searchInput && searchIcon) {
+        const filterProducts = () => {
+            const searchText = searchInput.value.trim().toLowerCase();
+            const products = document.querySelectorAll('.box');
+
+            products.forEach(product => {
+                const titleText = (product.querySelector('h3')?.textContent || '').toLowerCase();
+                const linkText = (product.querySelector('a')?.textContent || '').toLowerCase();
+
+                if (titleText.includes(searchText) || linkText.includes(searchText) || searchText === '') {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        };
+
         // Click on icon
-        searchIcon.addEventListener('click', () => {
-            filterProducts();
-        });
+        searchIcon.addEventListener('click', filterProducts);
 
         // Press Enter in search box
         searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                filterProducts();
-            }
+            if (e.key === 'Enter') filterProducts();
         });
+
+        // Live search
+        searchInput.addEventListener('input', filterProducts);
     }
-
-    function filterProducts() {
-        const searchText = searchInput.value.trim().toLowerCase();
-        const products = document.querySelectorAll('.box');
-
-        products.forEach(product => {
-            const titleText = (product.querySelector('h3')?.textContent || '').toLowerCase();
-            const linkText = (product.querySelector('a')?.textContent || '').toLowerCase();
-
-            if (titleText.includes(searchText) || linkText.includes(searchText) || searchText === '') {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none';
-            }
-        });
-    }
-    searchInput.addEventListener('input', filterProducts);
-
-
-
 });
