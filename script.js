@@ -1,4 +1,6 @@
-// Load cart from localStorage or initialize empty array
+// ----------------------------
+// Cart Initialization
+// ----------------------------
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Save cart to localStorage and update cart count
@@ -54,6 +56,7 @@ function displayCart() {
             <button class="remove-btn">Remove</button>
         `;
 
+        // Quantity and remove buttons
         div.querySelector('.minus-btn').addEventListener('click', () => {
             item.quantity--;
             if (item.quantity <= 0) cart.splice(index, 1);
@@ -86,16 +89,23 @@ function clearCart() {
     displayCart();
 }
 
-// Listen for changes in localStorage (cross-tab updates)
-window.addEventListener('storage', () => {
+// ----------------------------
+// Cart Refresh Helpers
+// ----------------------------
+
+// Refresh cart count (reads localStorage)
+function refreshCartCount() {
     cart = JSON.parse(localStorage.getItem('cart')) || [];
     updateCartCount();
-});
+}
 
-// Run on page load
+// ----------------------------
+// Event Listeners
+// ----------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Always update cart count on page load
-    updateCartCount();
+    // Always refresh cart count on page load
+    refreshCartCount();
 
     // Setup product buttons (if present)
     document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -121,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ----------------------------
     // Search functionality (if present)
+    // ----------------------------
     const searchInput = document.getElementById('searchInput');
     const searchIcon = document.querySelector('.searchicon');
 
@@ -142,15 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        // Click on icon
         searchIcon.addEventListener('click', filterProducts);
-
-        // Press Enter in search box
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') filterProducts();
         });
-
-        // Live search
         searchInput.addEventListener('input', filterProducts);
     }
 });
+
+// ----------------------------
+// Multi-tab & Back navigation support
+// ----------------------------
+
+// Update cart when localStorage changes (other tab)
+window.addEventListener('storage', refreshCartCount);
+
+// Update cart when navigating back to page (back/forward buttons)
+window.addEventListener('pageshow', refreshCartCount);
