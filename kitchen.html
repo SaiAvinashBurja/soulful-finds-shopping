@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen - Soulful Finds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <img src="logo.png" alt="Soulful Finds" class="site-logo" style="height:50px;">
+            </div>
+            <div class="nav-search">
+                <input placeholder="Search Kitchen" class="Searchbar" id="searchInput">
+                <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+            <div class="nav-cart border" id="cart-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart <span id="cart-count"></span>
+            </div>
+
+            <div class="nav-profile border">
+                <i class="fa-solid fa-user-circle"></i> Profile
+            </div>
+        </div>
+    </header>
+
+    <div class="shop-section">
+        <!-- Repeat this .box 9 times per category -->
+        <div class="box">
+            <div class="box-details">
+                <h3>Cutting Board</h3>
+                <div class="box-img" style="background-image: url('kitchen/img1.png'); background-size: cover;"></div>
+                <p>₹299</p>
+                <button class="add-to-cart" data-name="Cutting Board" data-price="299" data-image="kitchen/img1.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Bread Toaster</h3>
+                <div class="box-img" style="background-image: url('kitchen/img2.png'); background-size: cover;"></div>
+                <p>₹1399</p>
+                <button class="add-to-cart" data-name="Bread Toaster" data-price="1399" data-image="kitchen/img2.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Sponges - Set of 3</h3>
+                <div class="box-img" style="background-image: url('kitchen/img3.png'); background-size: cover;"></div>
+                <p>₹109</p>
+                <button class="add-to-cart" data-name="Sponges - Set of 3" data-price="109"
+                    data-image="kitchen/img3.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="shop-section">
+        <div class="box">
+            <div class="box-details">
+                <h3>Dish rack</h3>
+                <div class="box-img" style="background-image: url('kitchen/img4.png'); background-size: cover;"></div>
+                <p>₹999</p>
+                <button class="add-to-cart" data-name="Dish rack" data-price="999" data-image="kitchen/img4.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Blender and Juicer</h3>
+                <div class="box-img" style="background-image: url('kitchen/img5.png'); background-size: cover;"></div>
+                <p>₹2999</p>
+                <button class="add-to-cart" data-name="Blender and Juicer" data-price="2999"
+                    data-image="kitchen/img5.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Cutlery Set</h3>
+                <div class="box-img" style="background-image: url('kitchen/img6.png'); background-size: cover;"></div>
+                <p>₹399</p>
+                <button class="add-to-cart" data-name="Cutlery Set" data-price="399" data-image="kitchen/img6.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("searchInput").addEventListener("input", function () {
+            let filter = this.value.toLowerCase();
+            let products = document.querySelectorAll(".box");
+            products.forEach(product => {
+                let text = product.innerText.toLowerCase();
+                product.style.display = text.includes(filter) ? "" : "none";
+            });
+        });
+    </script>
+</body>
+
+</html>

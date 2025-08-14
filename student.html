@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student - Soulful Finds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <img src="logo.png" alt="Soulful Finds" class="site-logo" style="height:50px;">
+            </div>
+            <div class="nav-search">
+                <input placeholder="Search student" class="Searchbar" id="searchInput">
+                <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+            <div class="nav-cart border" id="cart-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart <span id="cart-count"></span>
+            </div>
+
+            <div class="nav-profile border">
+                <i class="fa-solid fa-user-circle"></i> Profile
+            </div>
+        </div>
+    </header>
+
+    <div class="shop-section">
+        <!-- Repeat this .box 9 times per category -->
+        <div class="box">
+            <div class="box-details">
+                <h3>College Bag</h3>
+                <div class="box-img" style="background-image: url('student/img1.png'); background-size: cover;"></div>
+                <p>₹1,299</p>
+                <button class="add-to-cart" data-name="College Bag" data-price="1299" data-image="student/img1.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Notebook Set(5)</h3>
+                <div class="box-img" style="background-image: url('student/img4.png'); background-size: cover;"></div>
+                <p>₹299</p>
+                <button class="add-to-cart" data-name="Notebook Set(5)" data-price="299" data-image="student/img4.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Calculator</h3>
+                <div class="box-img" style="background-image: url('student/img6.png'); background-size: cover;"></div>
+                <p>₹1,499</p>
+                <button class="add-to-cart" data-name="Calculator" data-price="1499"
+                    data-image="student/img6.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="shop-section">
+        <div class="box">
+            <div class="box-details">
+                <h3>Pen stand</h3>
+                <div class="box-img" style="background-image: url('student/img5.png'); background-size: cover;"></div>
+                <p>₹399</p>
+                <button class="add-to-cart" data-name="Pen stand" data-price="399" data-image="student/img5.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Sketch Pens</h3>
+                <div class="box-img" style="background-image: url('student/img2.png'); background-size: cover;"></div>
+                <p>₹99</p>
+                <button class="add-to-cart" data-name="Sketch Pens" data-price="99"
+                    data-image="student/img2.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Study Lamp</h3>
+                <div class="box-img" style="background-image: url('student/img3.png'); background-size: cover;"></div>
+                <p>₹899</p>
+                <button class="add-to-cart" data-name="Study Lamp" data-price="899" data-image="student/img3.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("searchInput").addEventListener("input", function () {
+            let filter = this.value.toLowerCase();
+            let products = document.querySelectorAll(".box");
+            products.forEach(product => {
+                let text = product.innerText.toLowerCase();
+                product.style.display = text.includes(filter) ? "" : "none";
+            });
+        });
+    </script>
+</body>
+
+</html>

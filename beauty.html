@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beauty - Soulful Finds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <img src="logo.png" alt="Soulful Finds" class="site-logo" style="height:50px;">
+            </div>
+            <div class="nav-search">
+                <input placeholder="Search beauty" class="Searchbar" id="searchInput">
+                <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+            <div class="nav-cart border" id="cart-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart <span id="cart-count"></span>
+            </div>
+
+            <div class="nav-profile border">
+                <i class="fa-solid fa-user-circle"></i> Profile
+            </div>
+        </div>
+    </header>
+
+    <div class="shop-section">
+        <!-- Repeat this .box 9 times per category -->
+        <div class="box">
+            <div class="box-details">
+                <h3>Face Wash</h3>
+                <div class="box-img" style="background-image: url('beauty/img1.png'); background-size: cover;"></div>
+                <p>₹299</p>
+                <button class="add-to-cart" data-name="Face Wash" data-price="299" data-image="beauty/img1.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Lipstick combo</h3>
+                <div class="box-img" style="background-image: url('beauty/img2.png'); background-size: cover;"></div>
+                <p>₹999</p>
+                <button class="add-to-cart" data-name="Lipstick combo" data-price="999" data-image="beauty/img2.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Blush and others</h3>
+                <div class="box-img" style="background-image: url('beauty/img6.png'); background-size: cover;"></div>
+                <p>₹499</p>
+                <button class="add-to-cart" data-name="Blush and others" data-price="499"
+                    data-image="beauty/img6.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="shop-section">
+        <div class="box">
+            <div class="box-details">
+                <h3>Eye Kajal </h3>
+                <div class="box-img" style="background-image: url('beauty/img5.png'); background-size: cover;"></div>
+                <p>₹199</p>
+                <button class="add-to-cart" data-name="Eye Kajal" data-price="199" data-image="beauty/img5.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Face Moisturizer</h3>
+                <div class="box-img" style="background-image: url('beauty/img4.png'); background-size: cover;"></div>
+                <p>₹399</p>
+                <button class="add-to-cart" data-name="Face Moisturizer" data-price="399"
+                    data-image="beauty/img4.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <div class="box">
+            <div class="box-details">
+                <h3>Nail polish</h3>
+                <div class="box-img" style="background-image: url('beauty/img3.png'); background-size: cover;"></div>
+                <p>₹299</p>
+                <button class="add-to-cart" data-name="Nail polish" data-price="299" data-image="beauty/img3.png">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("searchInput").addEventListener("input", function () {
+            let filter = this.value.toLowerCase();
+            let products = document.querySelectorAll(".box");
+            products.forEach(product => {
+                let text = product.innerText.toLowerCase();
+                product.style.display = text.includes(filter) ? "" : "none";
+            });
+        });
+    </script>
+</body>
+
+</html>

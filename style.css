@@ -1,0 +1,610 @@
+*{
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+}
+
+/* navigation bar setup */
+
+
+/* first box-logo */
+
+.nav-search:hover{
+    border: 2.5px solid #fefae0;
+}
+
+.nav-logo{
+    height: 60px;
+    width: 150px;
+}
+
+.border{
+    border: 2px solid transparent;
+}
+
+.border:hover{
+    border: 1px solid white;
+}
+
+/* second box - deliver */
+
+.addicon{
+    display: flex;
+    align-items: center;
+}
+.navad1{
+    color: #cccccc;
+    font-size: 0.8rem;
+    margin-left: 14px;
+}
+
+.navad2{
+    font-size: 1 rem;
+    margin-left: 2px;
+}
+
+/* Third Box- Search */
+
+.nav-search{
+    display: flex;
+    border-radius: 5px;
+    width: 700px;
+    background-color: pink;
+    height: 40px;
+}
+
+.searchAll{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #f3f3f3;
+    width: 50px;
+    text-align: center;
+    border: none;
+}
+
+.Searchbar{
+    width: 100%;  
+    font-size: 1rem;
+    border: none;
+
+}
+
+.searchicon{
+    width: 40px;
+    display: flex;;
+    justify-content: center;
+    align-items: center;
+    background-color: #fefae0;
+    color: #f5695a;
+    font-size: 1.3rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Fourth and Fifth Boxes- Accounts and Returns */
+
+span{
+    font-size: 0.75rem;
+}
+
+.boldborder{
+    font-size: 0.9rem;
+    font-weight: 750;
+}
+
+/* Sixth Box - Cart */
+
+.nav-cart i{
+    font-size: 2.5rem;
+}
+
+.nav-cart{
+    font-size: 1.2rem;
+    font-weight: 750;
+}
+
+/* panel styling */
+.panel{
+    height: 40px;
+    background-color: #0f3d3d;
+    display: flex;
+    color: white;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.panel-all{
+    font-weight: 700;
+    text-align: center;
+}
+
+.panel-options p{
+    display: inline;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.panel-options{
+    width: 70%;
+    font-size: 0.8rem;
+}
+
+.panel-deals{
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.underline:hover{
+    text-decoration-line: underline;
+}
+
+/* hero styling */
+
+.hero{
+    background-image: url(img1.png);
+    background-size: cover;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-text {
+    background-color: #005f73;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;      /* vertical centering */
+    justify-content: center;  /* horizontal centering */
+    width: 97%;
+    margin-bottom: 25px;
+    padding: 10px 0;          /* add some vertical spacing */
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+
+}
+
+/* Apply color to h2 and bold text inside */
+.hero-text h2,
+.hero-text h2 b {
+    color: #edeae4;
+    margin: 0; /* remove default h2 margin */
+    text-align: center; /* center text horizontally */
+    font-family: 'Raleway', sans-serif;
+font-weight: 500;
+letter-spacing: 1px;
+font-size: 19px;
+
+
+}
+
+
+
+
+/* shop section */
+
+.shop-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    gap: 30px; /* space between boxes */
+    background-color: #fefae0;
+    padding: 30px 40px; /* padding to prevent sticking to page edges */
+}
+
+.box {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.box-img {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.box-details{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.box a:hover{
+    font-size: 0.85rem;
+}
+
+.box-details a{
+    color: #551a8b;
+    font-size: 0.8rem;
+    text-decoration-line: underline;
+}
+
+.spacediv{
+    height:15px;
+    background-color: #f9f6f1 ;
+}
+
+/* empty div */
+
+.emptydiv1{
+    height: 50px;
+    background-color:white ;
+    border-bottom: 1px solid rgb(187, 183, 183);
+}
+
+.signinbox{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgb(182, 180, 180);
+}
+
+.footersignin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 25px;
+    border: 1px solid #fefae0;
+    background-color: #005f73;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.footersignin:hover{
+    border: 2px solid rgb(243, 134, 10);
+}
+
+.signinbox p{
+    font-size: 0.85rem;
+}
+
+.starthere{
+    font-size: 0.6rem;
+}
+
+.starthere a{
+    color: #551a8b;
+}
+
+.starthere a:hover{
+    text-decoration-line: underline;
+}
+
+.emptydiv2{
+    height: 20px;
+}
+
+.backtotop{
+    height: 50px;
+    background-color:#005f73;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.80rem;
+}
+.backtotop a {
+    color: white;          /* set text color */
+    text-decoration: none; /* remove underline */
+}
+
+
+.backtotop:hover{
+    text-decoration-line: underline;
+}
+
+
+
+.know1{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.know1 p{
+    margin-top: 7px;
+}
+
+.know1 p:hover{
+    text-decoration-line: underline;
+}
+
+/* footerbox */
+.footerbox {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center items */
+    gap: 40px; /* equal spacing between each block */
+    height: 100px;
+    background-color: #005f73;
+     /* your footer color */
+    border-top: 0.5px solid rgb(192, 188, 188);
+}
+
+.footereng,
+.footerdollar {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid white;
+    color: white;
+    gap: 10px;
+}
+
+
+
+.footerlogo{
+    height: 50px;
+    width: 100px;
+    background-image: url(amazon_logo.png);
+    background-size: cover;
+    color: white;
+}
+
+.footerempty{
+    width: 10px;
+}
+
+.footereng{
+    padding-left: 10px;
+    height: 30px;
+    width: 150px;
+    color: white;
+    font-weight: 300;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+
+}
+
+.footerengempty2{
+    margin-left: 10px;
+}
+
+.footerengempty2{
+    margin-left: 50px;
+}
+
+
+
+
+
+
+.ustext{
+    margin-left: 15px;
+}
+
+
+/* copy right pannel */
+
+.condfooter{
+    height: 100px;
+    background-color: #005f73;
+    color: white;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.footeroptions a{
+    padding-left: 20px;
+    text-decoration-line: underline;
+}
+
+.footeroptions a:hover{
+    font-size: 0.85rem;
+}
+
+
+
+
+
+/* Soulful Finds Theme Additions */
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #d4a017;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart {
+    background-color: #d4a017;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-top: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.add-to-cart:hover {
+    background-color: #a8841e;
+}
+
+.site-logo {
+    display: block;
+    height: 50px;
+    width: auto;
+}
+
+.navbar {
+    height: 60px;
+    background-color: #005f73;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 20px;
+
+    position: fixed;  /* keeps navbar at top */
+    top: 0;           /* stick to top */
+    left: 0;
+    width: 100%;      /* full width */
+    z-index: 1000;    /* stay above other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* optional shadow */
+}
+
+
+.nav-logo {
+    flex: 0 0 auto;
+}
+
+.nav-search {
+    flex: 1 1 auto;
+    max-width: 600px;
+    margin: 0 20px;
+    display: flex;
+}
+
+.nav-cart,
+.nav-profile {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.nav-profile i {
+    font-size: 2.5rem;
+}
+/* Cart Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+#cart-items {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 15px;
+}
+
+.cart-item span {
+    flex: 1;
+    font-size: 16px;
+    color: #444;
+}
+
+.cart-item button {
+    padding: 5px 10px;
+    background-color: #4a2c2a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: #2e1b19;
+}
+
+#total {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    text-align: right;
+}
+
+/* Quantity control container */
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+.qty-control button {
+    background-color: #4a2c2a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.qty-control button:hover {
+    background-color: #2e1b19;
+}
+
+.qty-control span {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Cart buttons container */
+.cart-buttons {
+    display: flex;
+    justify-content: center; /* center horizontally */
+    gap: 10px; /* space between buttons */
+    margin-top: 20px;
+}
+
+.cart-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s; /* smooth hover scaling */
+    color: white;
+}
+
+.buy-btn {
+    background-color: #4CAF50; /* green */
+}
+
+.clear-btn {
+    background-color: #f44336; /* red */
+}
+
+/* Grow slightly on hover */
+.cart-buttons button:hover {
+    transform: scale(1.1);
+}
