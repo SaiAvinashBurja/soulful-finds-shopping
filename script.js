@@ -86,9 +86,15 @@ function clearCart() {
     displayCart();
 }
 
+// Listen for changes in localStorage (cross-tab updates)
+window.addEventListener('storage', () => {
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+    updateCartCount();
+});
+
 // Run on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Always update cart count in navbar
+    // Always update cart count on page load
     updateCartCount();
 
     // Setup product buttons (if present)
